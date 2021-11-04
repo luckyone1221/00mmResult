@@ -1,3 +1,3 @@
 <!-- -->
 
-1. < https://luckyone1221.github.io/00mmResult/public/index.html>
+1. <https://luckyone1221.github.io/00mmResult/public/>
