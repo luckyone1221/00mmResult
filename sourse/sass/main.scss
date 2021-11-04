@@ -23,7 +23,7 @@ $output-bourbon-deprecation-warnings: false;
 // Layout & components
 
 @import "./node_modules/bootstrap/scss/functions";
-@import "vars"; 
+@import "vars";
 @import "./node_modules/bootstrap/scss/variables";
 @import "./node_modules/bootstrap/scss/mixins";
 @import "./node_modules/bootstrap/scss/utilities";
@@ -36,7 +36,7 @@ $output-bourbon-deprecation-warnings: false;
 @import "./node_modules/bootstrap/scss/containers";
 @import "./node_modules/bootstrap/scss/grid";
 // @import "./node_modules/bootstrap/scss/tables";
-@import "./node_modules/bootstrap/scss/forms";
+//@import "./node_modules/bootstrap/scss/forms";
 @import "./node_modules/bootstrap/scss/buttons";
 // @import "./node_modules/bootstrap/scss/transitions";
 // @import "./node_modules/bootstrap/scss/dropdown";
@@ -62,7 +62,7 @@ $output-bourbon-deprecation-warnings: false;
 // @import "./node_modules/bootstrap/scss/offcanvas";
 // @import "./node_modules/bootstrap/scss/placeholders";
 // Helpers
-@import "./node_modules/bootstrap/scss/helpers";
+//@import "./node_modules/bootstrap/scss/helpers";
 
 // Utilities
 @import "./node_modules/bootstrap/scss/utilities/api";
@@ -101,4 +101,5 @@ $output-bourbon-deprecation-warnings: false;
 @import "base";
 @import '../pug/blocks/**/*.scss';
 @import "media"; // Всегда в конце
+//@import '../pug/blocks/sSlider/sSlider.scss';
 

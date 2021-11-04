@@ -46,6 +46,7 @@
   },
   "dependencies": {
     "@fancyapps/ui": "^4.0.5",
+    "gsap": "^3.8.0",
     "inputmask": "^5.0.6",
     "jquery": "^3.6.0",
     "swiper": "^7.0.6"

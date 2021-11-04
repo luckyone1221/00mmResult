@@ -3,25 +3,24 @@ extends layout/main.pug
 
 include ../blocks/sContent/_sContent.pug
 include ../blocks/sContact/_sContact.pug
+include ../blocks/sSlider/_sSlider.pug
 
 block variables
 	- let  mainPage= 'main-page' 
-	- let  bg= null
+	- let  bg="index.png"
 
 block title
 	- let  title= 'title'
 	title= title
 block pagecontent
-	+mob-mnu()
-	+header()
-	+top-nav()
-	
-	+topLine()
-	+headerBlock()
-	+sForm()
-	+sContact()
-	+footer()
-      
+	//-+mob-mnu()
+	//-+header()
+		+top-nav()
+		//-+topLine()
+	+sSlider()
+	//+sForm()
+	//+sContact()
+	//-+footer()
 
 
 

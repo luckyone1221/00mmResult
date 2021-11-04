@@ -119,6 +119,7 @@ export default function slideTo(index = 0, speed = this.params.speed, runCallbac
 
       if (isVirtual) {
         swiper.wrapperEl.style.scrollSnapType = 'none';
+        swiper._immediateVirtual = true;
       }
 
       wrapperEl[isH ? 'scrollLeft' : 'scrollTop'] = t;
@@ -126,6 +127,7 @@ export default function slideTo(index = 0, speed = this.params.speed, runCallbac
       if (isVirtual) {
         requestAnimationFrame(() => {
           swiper.wrapperEl.style.scrollSnapType = '';
+          swiper._swiperImmediateVirtual = false;
         });
       }
     } else {

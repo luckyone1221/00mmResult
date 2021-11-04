@@ -17,6 +17,7 @@ export default function Virtual({
       addSlidesAfter: 0
     }
   });
+  let cssModeTimeout;
   swiper.virtual = {
     cache: {},
     from: undefined,
@@ -56,7 +57,11 @@ export default function Virtual({
       slidesGrid: previousSlidesGrid,
       offset: previousOffset
     } = swiper.virtual;
-    swiper.updateActiveIndex();
+
+    if (!swiper.params.cssMode) {
+      swiper.updateActiveIndex();
+    }
+
     const activeIndex = swiper.activeIndex || 0;
     let offsetProp;
     if (swiper.rtlTranslate) offsetProp = 'right';else offsetProp = swiper.isHorizontal() ? 'left' : 'top';
@@ -193,7 +198,7 @@ export default function Virtual({
         const cachedElIndex = $cachedEl.attr('data-swiper-slide-index');
 
         if (cachedElIndex) {
-          $cachedEl.attr('data-swiper-slide-index', parseInt(cachedElIndex, 10) + 1);
+          $cachedEl.attr('data-swiper-slide-index', parseInt(cachedElIndex, 10) + numberOfNewSlides);
         }
 
         newCache[parseInt(cachedIndex, 10) + numberOfNewSlides] = $cachedEl;
@@ -259,7 +264,15 @@ export default function Virtual({
   });
   on('setTranslate', () => {
     if (!swiper.params.virtual.enabled) return;
-    update();
+
+    if (swiper.params.cssMode && !swiper._immediateVirtual) {
+      clearTimeout(cssModeTimeout);
+      cssModeTimeout = setTimeout(() => {
+        update();
+      }, 100);
+    } else {
+      update();
+    }
   });
   on('init update resize', () => {
     if (!swiper.params.virtual.enabled) return;

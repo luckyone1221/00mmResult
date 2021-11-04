@@ -1,0 +1,34 @@
+mixin sSlider(data)
+	// start sSlider
+	+b.SECTION.sSlider.section#sSlider&attributes(attributes)
+		.container
+			+sSliderSlider({
+				arrowPrevClasses: 'custom-prev1-js',
+				arrowNextClasses: 'custom-next1-js',
+				sliderClasses: 'custom-slider-js',
+			})
+			+sSliderSlider({
+				arrowPrevClasses: 'custom-prev2-js',
+				arrowNextClasses: 'custom-next2-js',
+				sliderClasses: 'custom-slider2-js',
+			})
+	// end sSlider
+
+mixin sSliderSlider(data)
+	+e.baner-wrap
+		+e.header
+			+e.header-row.row.align-items-center
+				.col-auto
+					+e.btn(type="button" class=data.arrowPrevClasses)
+						img(loading="lazy" src="img/svg/caret-left.svg" alt="")
+				.col
+					+e.logo
+						img(loading="lazy" src="img/@2x/logo.png" alt="")
+				.col-auto
+					+e.btn(type="button" class=data.arrowNextClasses)
+						img(loading="lazy" src="img/svg/caret-right.svg" alt="")
+		+e.slider-wrap
+			+e.slider(class=data.sliderClasses)
+				-for (var i = 1; i <= 5; i++)
+					+e.slide.custom-slide-js
+						img(loading="lazy" src=`img/@2x/webp/slide-${i}.webp` alt="")
